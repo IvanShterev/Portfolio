@@ -3,9 +3,6 @@ import Calculator from "../calculator/calculator";
 import TicTacToe from "../TicTacToe/tictactoe";
 import Gmail from "../gmail/gmail";
 import { startStarFieldAnimation } from '../canvas/canvas';
-
-
-import "./phone.css";
 import { InstagramIcon } from "../assets/InstagramIcon";
 
 const Phone = () => {
@@ -73,7 +70,7 @@ const Phone = () => {
                         <span>App Store</span>
                     </div>
                     <div className="app-cont">
-                        <a href="#" className="app" onClick={() => {setShowApp(true); setShowGmail(true)}}>
+                        <a href="#gmail" className="app" onClick={() => {setShowApp(true); setShowGmail(true)}}>
                             <img id="gmail-phone" src="gmail_icon.png" alt="" />
                         </a>
                         <span>Gmail</span>
@@ -98,7 +95,7 @@ const Phone = () => {
                     </div>
                 </div> 
             ) : showCalc ? (
-                    <Calculator show={toggleShowApp} />
+                    <Calculator show={toggleShowApp} setShowCalc={setShowCalc} />
                 ) : showGmail ? (
                     <Gmail show={toggleShowApp} />
                 ) : showTicTacToe ? (

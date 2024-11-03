@@ -6,6 +6,9 @@ interface TicTacToeProps {
 const TicTacToe: React.FC<TicTacToeProps> = ({show}) => {
     return (
         <>
+            <div className="tic-tac-toe-cont">
+                
+            </div>
         </>
     )
 

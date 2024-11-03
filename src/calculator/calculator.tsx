@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 interface CalculatorProps {
     show: (value: boolean) => void;
+    setShowCalc: (value: boolean) => void;
 }
 
-const Calculator: React.FC<CalculatorProps> = ({ show }) => {
+const Calculator: React.FC<CalculatorProps> = ({ show, setShowCalc }) => {
     const [result, setResult] = useState('0');
     const [currentInput, setCurrentInput] = useState('');
     const [operation, setOperation] = useState<string | null>(null);
@@ -94,7 +95,8 @@ const Calculator: React.FC<CalculatorProps> = ({ show }) => {
     };
 
     const handleGoBack = () => {
-        show(false); 
+        show(false);
+        setShowCalc(false);
     };
 
     return (

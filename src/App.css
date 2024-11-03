@@ -3,40 +3,43 @@
 :root {
     --main-background: radial-gradient(circle at 50% 50%, #2c003e, #0a001a, #000);
     --base-h2-size: 3.5rem;
+    --base-buttons-calc-gap: 15px;
+    --base-calc-btn-height: 90px;
+    --base-calc-btn-width: 90px;
+    --base-calc-btn-font-size: 28px;
+    --base-zero-btn-height: 90px;
+    --base-zero-btn-width: calc(var(--base-calc-btn-width) * 2 + var(--base-buttons-calc-gap));
 }
+
 /* Small screens */
 @media only screen and (max-width: 1000px) {
     .mascot {
         position: relative;
         align-self: center;
+        width: 20vw;
     }
     :root {
         --phone-base-height: calc(85vh - 80px);
     }
-}
-/* Medium screens only */
-@media only screen and (min-width: 1000px) and (max-width: 1400px) {
-    .mascot {
-        position: absolute;
+    .gray-btns, .orange-btns, .numbers-btns {
+        height: 74px;
+        width: 74px;
+        font-size: 20px;
     }
-    :root {
-        --phone-base-height: calc(100vh - 80px);
+    .buttons-calc {
+        justify-content: center;
+        gap: 10px;
     }
-    .about-me {
-        width: 50%;
+    #zero-btn {
+        height: 74px;
+        width: 154px;
     }
-}
-/* Medium + small screens */
-@media only screen and (max-width: 1400px) {
     #root {
         flex-direction: column-reverse;
     }
     .stats-cont {
         gap: 50px;
         justify-content: center;
-    }
-    .mascot {
-        width: 20vw;
     }
     .lang-tools, h2, .about-me {
         text-align: center;
@@ -52,22 +55,80 @@
         justify-content: center;
     }
 }
-/* Big screens */
-@media only screen and (min-width: 1400px) {
-    .stats-cont {
-        gap: 100px;
-    }
+
+/* Medium screens */
+@media only screen and (min-width: 1000px) and (max-width: 1400px) {
     .mascot {
-        width: 24vw;
         position: absolute;
-    }
-    .about-me {
-        width: 50%;
+        width: 20vw;
     }
     :root {
         --phone-base-height: calc(100vh - 80px);
     }
+    .about-me {
+        width: 50%;
+        text-align: center;
+    }
+    .stats-cont {
+        gap: 50px;
+        justify-content: center;
+    }
+    .gray-btns, .orange-btns, .numbers-btns {
+        height: var(--base-calc-btn-height);
+        width: var(--base-calc-btn-width);
+        font-size: var(--base-calc-btn-font-size);
+    }
+    .buttons-calc {
+        gap: var(--base-buttons-calc-gap);
+    }
+    #zero-btn {
+        height: var(--base-zero-btn-height);
+        width: var(--base-zero-btn-width);
+    }
+    #root {
+        flex-direction: column-reverse;
+    }
+    .phone-container {
+        align-self: center;
+    }
+    .desc-cont {
+        align-items: center;
+    }
+    .tool-icons {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
 }
+
+/* Large screens */
+@media only screen and (min-width: 1400px) {
+    .mascot {
+        width: 24vw;
+        position: absolute;
+    }
+    :root {
+        --phone-base-height: calc(100vh - 80px);
+    }
+    .about-me {
+        width: 50%;
+    }
+    .stats-cont {
+        gap: 100px;
+    }
+    .gray-btns, .orange-btns, .numbers-btns {
+        height: var(--base-calc-btn-height);
+        width: var(--base-calc-btn-width);
+        font-size: var(--base-calc-btn-font-size);
+    }
+    .buttons-calc {
+        gap: var(--base-buttons-calc-gap);
+    }
+    #zero-btn {
+        height: var(--base-zero-btn-height);
+        width: var(--base-zero-btn-width);
+    }
+}
+
 
 * {
     margin: 0;
@@ -207,10 +268,7 @@ h2{
     width: 45px;
 }
 
-.top-segment{
-    
-    top: 0;
-    left: 165px;
+.top-segment{ 
     z-index: 100;
     height: 28px;
     width: 120px;
@@ -221,6 +279,7 @@ h2{
     align-items: center;
     justify-content: center;
     gap: 17px;
+    position: absolute;
 }
 
 .sound-div{
@@ -326,7 +385,7 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     background-color: #000;
     position: relative;
     user-select: none;
@@ -336,8 +395,9 @@ h2{
     height: 25px;
     width: 25px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-self: flex-start;
+    margin-bottom: 45px;
+    margin-left: 50px;
     cursor: pointer;
     position: relative;
 }
@@ -364,28 +424,21 @@ h2{
 .buttons-calc{
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
     padding: 10px;
-    
-    bottom: 10px;
 }
 
 #display-calc{
     color: #fff;
-    
-    bottom: 560px;
-    right: 54px;
+    align-self: flex-end;
+    margin-right: 48px;
     font-size: 75px;
 }
 
 .gray-btns, .orange-btns, .numbers-btns{
     border-radius: 50%;
-    height: 90px;
-    width: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
     font-weight: bold;
     color: #000;
     background-color: gray;
@@ -405,8 +458,6 @@ h2{
 }
 
 #zero-btn{
-    height: 90px;
-    width: 195px;
     justify-content: flex-start;
     border-radius: 50px;
 }
