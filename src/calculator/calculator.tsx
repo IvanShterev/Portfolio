@@ -100,12 +100,7 @@ const Calculator: React.FC<CalculatorProps> = ({ show }) => {
     return (
         <>
             <div className="calc-cont">
-                <span id='go-back-calc' onClick={handleGoBack}>
-                    <svg fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 19L8 12L15 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Back</span>
-                </span>
+                <span id='go-back-calc' onClick={handleGoBack}></span>
                 <span id="display-calc">{result}</span>
                 <div className="buttons-calc">
                     <button className="gray-btns" onClick={handleClear}>AC</button>

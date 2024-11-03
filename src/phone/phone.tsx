@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Calculator from "../calculator/calculator";
 import TicTacToe from "../TicTacToe/tictactoe";
 import Gmail from "../gmail/gmail";
+import { startStarFieldAnimation } from '../canvas/canvas';
 
+
+import "./phone.css";
+import { InstagramIcon } from "../assets/InstagramIcon";
 
 const Phone = () => {
     const [showApp, setShowApp] = useState(false);
@@ -14,16 +18,24 @@ const Phone = () => {
         setShowApp(value);
     };
 
+    useEffect(
+        () => {
+            startStarFieldAnimation('canvas');
+        }, []
+    );
+
     return (
         <>
-            <div className="phone-container">
-                <div className="space-background"></div>
-                <div className="top-segment">
-                    <div className="sound-div"></div>
-                    <div className="camera-div"></div>
-                </div>
-                {!showApp ? (
-                <div className="apps-container">
+        <div className="phone-container">
+            <div className="space-background"></div>
+            <canvas id="canvas"></canvas>
+            <div className="top-segment">
+                <div className="sound-div"></div>
+                <div className="camera-div"></div>
+            </div>
+            {!showApp ? 
+            (
+                <div className="apps-container hidden-scroll">
                     <div className="app-cont">
                         <a href="https://www.youtube.com/" className="app" target="_blank" rel="noopener noreferrer">
                             <img id="youtube-phone" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="" />
@@ -38,7 +50,7 @@ const Phone = () => {
                     </div>
                     <div className="app-cont">
                         <a href="https://www.instagram.com/ivan_shterevv/" className="app" target="_blank" rel="noopener noreferrer">
-                            <img id="instagram-phone" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="" />   
+                            <InstagramIcon/>
                         </a>
                         <span>Instagram</span>
                     </div>
@@ -61,19 +73,19 @@ const Phone = () => {
                         <span>App Store</span>
                     </div>
                     <div className="app-cont">
-                        <a href="" className="app" onClick={() => {setShowApp(true); setShowGmail(true)}}>
+                        <a href="#" className="app" onClick={() => {setShowApp(true); setShowGmail(true)}}>
                             <img id="gmail-phone" src="gmail_icon.png" alt="" />
                         </a>
                         <span>Gmail</span>
                     </div>
                     <div className="app-cont">
-                        <a href="" className="app" onClick={() => {setShowApp(true); setShowCalc(true)}}>
+                        <a href="#calculator" className="app" onClick={() => {setShowApp(true); setShowCalc(true)}}>
                             <img id="calc-phone" src="calculator-icon.png" alt="" />
                         </a>
                         <span>Calculator</span>
                     </div>
                     <div className="app-cont">
-                        <a href="" className="app" onClick={() => {setShowApp(true); setShowTicTacToe(true)}}>
+                        <a href="#" className="app" onClick={() => {setShowApp(true); setShowTicTacToe(true)}}>
                             <img id="ticTacToe-icon-phone" src="ticttactoe-icon.png" alt="" />
                         </a>
                         <span>TicTacToe</span>
@@ -85,7 +97,7 @@ const Phone = () => {
                         <span>Settings</span>
                     </div>
                 </div> 
-                ) : showCalc ? (
+            ) : showCalc ? (
                     <Calculator show={toggleShowApp} />
                 ) : showGmail ? (
                     <Gmail show={toggleShowApp} />
