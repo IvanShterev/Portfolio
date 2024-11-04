@@ -102,7 +102,7 @@ const Calculator: React.FC<CalculatorProps> = ({ show, setShowCalc }) => {
     return (
         <>
             <div className="calc-cont">
-                <span id='go-back-calc' onClick={handleGoBack}></span>
+                <span id='go-back-btn' onClick={handleGoBack}></span>
                 <span id="display-calc">{result}</span>
                 <div className="buttons-calc">
                     <button className="gray-btns" onClick={handleClear}>AC</button>

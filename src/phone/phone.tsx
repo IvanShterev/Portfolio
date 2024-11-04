@@ -97,7 +97,7 @@ const Phone = () => {
             ) : showCalc ? (
                     <Calculator show={toggleShowApp} setShowCalc={setShowCalc} />
                 ) : showGmail ? (
-                    <Gmail show={toggleShowApp} />
+                    <Gmail show={toggleShowApp} setShowGmail={setShowGmail} />
                 ) : showTicTacToe ? (
                     <TicTacToe show={toggleShowApp} />
                 ) : null}

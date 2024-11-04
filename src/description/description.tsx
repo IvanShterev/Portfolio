@@ -6,9 +6,9 @@ const Description = () => {
         <>
             <div className="desc-cont">
                 <h2>👋 I'm Ivan Shterev</h2>
-                <h2 id="h2-diff">FrontEnd Developer</h2>
+                <h2 id="h2-diff">Front-end Developer</h2>
                 <p className="about-me">
-                    I specialize in creating web site and providing easy software solutions. FrontEnd is my power, but i also have some experience with BackEnd.
+                    I specialize in creating web applications and providing custom software solutions. Front-end is my power, but i also have some experience with Back-end.
                 </p>
                 <div className="contacts-cont">
                     <span>Contact me:</span>
